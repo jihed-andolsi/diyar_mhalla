@@ -1,0 +1,197 @@
+<html>
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0"/>
+        <title>PC</title>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+        <link href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.css" rel="stylesheet">
+        <link href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.theme.min.css" rel="stylesheet">
+    </head>
+    <body>
+        <div id="container_map"></div>
+        <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+        <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+        <script>
+            $(document).ready(function(){
+                new Map.Zoomer(window.innerWidth, window.innerHeight, {transparent: true, autoResize: true}).init({
+                    selectorId: "container_map",
+                    size: [1366, 768],
+                    sizePhone: [window.innerWidth, window.innerHeight],
+                    fullSizeShow: false,
+                    sprites: [
+                        {"name": "background", "url": "./assets/pictures/diar-mhalla.jpg", "x": 0, "y": 0},
+                        {"name": "guide", "url": "./assets/pictures/guide.png", "x": 0, "y": 0},
+                    ],
+                    locations: [
+                        /*{"name": "GAMMARTH", "point":  {x: 831, y: 603}, "position": {x: 0, y: -30}},
+                        {"name": "MARSA", "point":  {x: 586, y:  534}, "position": {x: 0, y: -30}},
+                        {"name": "CARTHAGE", "point": {x: 364, y: 417}, "position": {x: 0, y: -40}},
+                        {"name": "LE KRAM", "point": {x: 479, y: 314}, "position": {x: 0, y: -30}},
+                        {"name": "LA SOUKRA", "point": {x: 909, y: 412}, "position": {x: 0, y: -30}},
+                        {"name": "LA GOULETTE", "point": {x: 576, y: 255}, "position": {x: 0, y: -30}},
+                        {"name": "RADES", "point": {x: 694, y: 144}, "position": {x: 0, y: -30}},
+                        {"name": "LES BERGES DU LAC", "point": {x: 929, y: 279}, "position": {x: 0, y: -30}},
+                        {"name": "AEROPORT TUNIS-CARTHAGE", "point": {x: 1146, y: 273}, "position": {x: 0, y: -30}},
+                        {"name": "TUNIS", "point": {x: 1256, y: 154}, "position": {x: 40, y: 0}},
+                        {"name": "EL MENZAH", "point": {x: 1453, y: 217}, "position": {x: 0, y: -30}},
+                        {"name": "ARIANA", "point": {x: 2304, y: 218}, "position": {x: 0, y: -30}},
+                        {"name": "LE BARDO", "point": {x: 1476, y: 136}, "position": {x: 0, y: -30}},
+                        {"name": "RAOUED", "point": {x: 1694, y: 628}, "position": {x: 0, y: -30}},
+                        {"name": "CARTHAGE LAND", "point": {x: 1074, y: 222}, "position": {x: 0, y: -30}},
+                        {"name": "MANAR 1", "point": {x: 1501, y: 177}, "position": {x: 0, y: -30}},
+                        {"name": "CITE NASER", "point": {x: 1825, y: 109}, "position": {x: 0, y: -30}},
+                        */
+                        {"name": "MG", point: {x:-404.33101495449654, y:182.09600092738847}, "position": {x: 0, y: -30}},
+                        {"name": "Polyclinique Hamem lif", point: {x:-797.2857142857143, y:115.22821993626634}, "position": {x: 70, y: 30}},
+                        {"name": "Pharmacie de nuit", point: {x:-635.8571428571429, y:99.51393422198063}, "position": {x: 0, y: -30}},
+                        {"name": "Bureau de poste", point: {x:-303.71428571428584, y:128.7996485076949}, "position": {x: 0, y: -30}},
+                        {"name": "Pharmacie ben ghorbem", point: {x:-327.2857142857144, y:158.0853627934092}, "position": {x: 100, y: 0}},
+                        {"name": "Station de service", point: {x:24.142857142856943, y:131.65679136483777}, "position": {x: 0, y: -30}},
+                        {"name": "UBCI", point: {x:101.99999999999977, y:116.65679136483777}, "position": {x: 0, y: -30}},
+                        {"name": "Electro NABLI", point: {x:99.14285714285693, y:193.0853627934092}, "position": {x: 0, y: 30}},
+                    ],
+                    project: {"name": "TunisBay", "coords": [
+                            [1901.9400164321412, 856.7766966202232],
+                            [1930.6681850209131, 828.0485280314512],
+                            [2122.6245842277085, 763.627786347538],
+                            [2170.0695899273474, 775.8154942336837],
+                            [2221.8673484434667, 788.4384774014775],
+                            [2266.265427171569, 808.4611403572884],
+                            [2271.488730551346, 807.5905897939922],
+                            [2274.5356575228825, 806.284763949048],
+                            [2278.453135057715, 794.0970560629023],
+                            [2281.5000620292517, 795.8381571894946],
+                            [2280.6295114659556, 801.9320111325675],
+                            [2277.1473092127712, 807.1553145123443],
+                            [2274.535657522883, 810.2022414838807],
+                            [2268.44180357981, 810.6375167655287],
+                            [2264.5243260449774, 814.5549943003613],
+                            [2258.430472101905, 817.6019212718977],
+                            [2241.019460835982, 838.9304100726528],
+                            [2280.1942361843076, 867.6585786614248],
+                            [2279.7589609026595, 878.9757359842745],
+                            [2268.877078861458, 882.457938237459],
+                            [2268.877078861458, 893.7750955603087],
+                            [2277.147309212771, 906.8333540097506],
+                            [2307.6165789281354, 918.5857866142481],
+                            [2302.8285508300064, 934.6909720352265],
+                            [2182.1144837495553, 1001.4309904095153],
+                            [1900.6964412341247, 857.9431554465309]
+                        ]
+                    },
+                    projectItems: [
+                        //{"name": "item 1", "sprite": "item_1", "coords":{x: 1983, y: 844}},
+                    ],
+                    widthExtent: function(width){
+                        return -813;
+                    },
+                    heightExtent: function(height){
+                        return -447;
+                    },
+                    widthExtentMaximum: function(width){
+                        
+                        return 813;
+                    },
+                    heightExtentMaximum: function(height){
+                        return 447;
+                    },
+                    initialData: function(width, height){
+                        if(window.innerWidth<1400){
+                            var k = 0.7;
+                            var x = 582;
+                            var y = 327;
+                        } else {
+                            var k = 0.7;
+                            var x = 582;
+                            var y = 327;
+                        }
+
+                        return {"k":k, "x":x, "y":y};
+                    },
+                    initialDataMobile:  function(width, height){
+                        var k = 0.7;
+                        var x = 147;
+                        var y = 320;
+                        return {"k":k, "x":x, "y":y};
+                    },
+                    showGuide: true,
+                    defaultColor: 0xd1a9a4,
+                    defaultOpacity: .8,
+                    showButtonPlans: true,
+                    onMouseOverLocation: function(element){
+                        // console.log('onMouseOverLocation');
+
+                        $("#container_map canvas").tooltip({
+                            track: true,
+                            context: function () {
+                                return ' ';
+                            },
+                        }).tooltip("option", "content", element.name).tooltip( "enable" );
+                        $('.ui-tooltip').show();
+                    },
+                    onMouseOutLocation: function(element){
+                        // console.log('onMouseOutLocation');
+                       $('.ui-tooltip').hide();
+                    },
+                    onMouseOverBackground: function(elemnt){
+                        // console.log('onMouseOverBackground');
+                        $('.ui-tooltip').hide();
+                    },
+                    onMouseOutBackground: function(element){
+                        console.log('onMouseOutBackground');
+                    },
+                    onMouseOverPoject: function(element){
+                        console.log('onMouseOverPoject');
+                        /*
+                        $("#container_map canvas").tooltip({
+                            track: true,
+                            context: function () {
+                                return ' ';
+                            },
+                        }).tooltip("option", "content", element.name).tooltip( "enable" );
+                        $('.ui-tooltip').show();*/
+                    },
+                    onMouseOutProject: function(element){
+                        console.log('onMouseOutProject');
+                        // console.log('onMouseOutLocation');
+                        // $('.ui-tooltip').hide();
+                    },
+                    onMouseOverPojectItem: function(element){
+                        // console.log('onMouseOverLocation');
+
+                        $("#container_map canvas").tooltip({
+                            track: true,
+                            context: function () {
+                                return ' ';
+                            },
+                        }).tooltip("option", "content", element.name).tooltip( "enable" );
+                        $('.ui-tooltip').show();
+                    },
+                    onMouseOutProjectItem: function(element){
+                        // console.log('onMouseOutLocation');
+                        $('.ui-tooltip').hide();
+                    },
+                    onClickItem(element){
+                        console.log("clicked")
+                    },
+                }, function(){
+                    // console.log("loaded");
+                    $("#container_map canvas").addClass('row');
+                    $("#container_map canvas").attr('id', 'canvas-container');
+                    $("#container_map canvas").css('margin', '0');
+                    $("#container_map canvas").attr('title', ' ');
+                    $("#container_map canvas").tooltip({
+                        track: true,
+                        context: function () {
+                            return ' ';
+                        },
+                    });
+                    $('.ui-tooltip').hide();
+                });
+            })
+
+        </script>
+    </body>
+</html>
